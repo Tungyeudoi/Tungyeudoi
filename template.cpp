@@ -1,11 +1,11 @@
 //-----------LeTrongTung-------------
-//-----------<3-KKL------------------
 #include <bits/stdc++.h>
 #define endl '\n'
 #define ll long long
 #define ull unsigned long long
-#define task1 "luyencode"
-#define task ""
+#define ret return;
+#define End cout<<'\n';
+#define con continue;
 
 using namespace std;
 
@@ -22,11 +22,10 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    if(fopen(task".inp", "r"))
-    {
+    /*
         freopen(task".inp","r",stdin);
         freopen(task".out","w",stdout);
-    }
+    */
     int q;
     cin >> q;
     while(q--)

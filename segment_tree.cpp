@@ -1,90 +1,83 @@
-// Test
+//author : Le Trong Tung
 #include <bits/stdc++.h>
 #define int long long
+#define endl '\n'
+#define End cout << '\n';
+#define con continue;
 
 using namespace std;
-const int MOD = 1000000007;
-const int INF = 0x3c3c3c3c;
-const int N = 1000010;
 
-struct Node {
-    int lazy;
-    int val;
-} nodes[N * 4];
+const int N = 100010;
+const int INF = 1e9 + 10;
+int T[4*N] , a[N];
 
+void build(int node, int l, int r){
+    if(l == r){
+        T[node] = a[l];
+        return;
+    }
 
-
-void down(int id){
-    int t = nodes[id].lazy;
-
-    nodes[2 * id].lazy += t;
-    nodes[2 * id].val += t;
-
-    nodes[2 * id + 1].lazy += t;
-    nodes[2 * id + 1].val += t;
-
-    nodes[id].lazy = 0;
+    int mid = (l + r) / 2;
+    build(node*2 , l , mid);
+    build(node*2+1, mid + 1 , r);
+    T[node] = max(T[node*2], T[node*2+1]);
 }
 
-void update(int id , int l , int r , int u , int v , int val){
-    if(r < u || l > v) return ;
 
-    if(u <= l && r <= v){
-        nodes[id].val = nodes[id].val + val;
-        nodes[id].lazy = nodes[id].lazy + val;
+void update(int id, int l, int r, int i, int v) {
+    if (i < l || r < i) {
+        return ;
+    }
+    if (l == r) {
+        T[id] = v;
         return ;
     }
 
     int mid = (l + r) / 2;
+    update(id*2, l, mid, i, v);
+    update(id*2 + 1, mid+1, r, i, v);
 
-    down(id);
-
-    update(id * 2 , l , mid , u , v , val);
-    update(id * 2 + 1, mid + 1 , r , u , v , val);
-
+    T[id] = max(T[id*2], T[id*2 + 1]);
 }
 
-int get(int id , int l , int r , int u , int v){
-    if(v < l || r < u) return -1;
-
-    if(u <= l && r <= v){
-        return nodes[id].val;
+int get(int id, int l, int r, int u, int v) {
+    if (v < l || r < u) {
+        return -INF;
     }
-
-    down(id);
+    if (u <= l && r <= v) {
+        return T[id];
+    }
     int mid = (l + r) / 2;
 
-    return max(get(id * 2 , l , mid , u , v) ,
-               get(id * 2 + 1 , mid + 1 , r , u , v));
+    return max(get(id*2, l, mid, u, v), get(id*2 + 1, mid+1, r, u, v));
 }
-int32_t main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
 
-    //freopen("test.inp", "r", stdin);
-    //freopen("test.out", "w", stdout);
-
-    int n, m, c;
-    cin >> n >> m >> c;
-
-    update(1 , 1 , n , 1 , n , c);
-    for(int i = 1;i <= m;i ++){
-        int u , v , k , p;
-        char luf ;
-        cin >> luf ;
-
-        if(luf == 'S'){
-            cin >> u >> v >> k;
-
-            update(1 , 1 , n , u , v , k);
-        } else {
-
-            cin >> p;
-
-            cout << get(1 , 1 , n , p , p) << '\n';
+void solve(){
+    int n, q;
+    cin >> n;
+    for(int i = 1;i<=n;i++){
+        cin >> a[i];
+    }
+    cin >> q;
+    build(1 , 1 , n);
+    while(q--){
+        int key , b , c;
+        cin >> key >> b >> c;
+        if(key == 1){
+            update(1 , 1 , n , b , c);
+        }
+        else{
+            cout << get(1 , 1 , n , b , c) << endl;
         }
     }
+}
 
-    return 0;
+int32_t main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    int q = 1;
+    //cin >> q;
+    while(q--)
+        solve();
 }

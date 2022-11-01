@@ -13,7 +13,7 @@ int T[4*N] , lazy[4*N] , a[N];
 
 void build(int id, int l, int r){
     if(l == r){
-        T[node] = a[l];
+        T[id] = a[l];
         return;
     }
 

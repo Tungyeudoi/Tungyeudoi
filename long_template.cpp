@@ -1,7 +1,7 @@
 //Day la template Tung hay dung
 //Tung chi ,muon noi la Tung yeu ban rat nhieu
 //Copy thi nho xoa nha
-//Love KKL
+
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -199,10 +199,10 @@ int main(){
             * size() - Returns the number of elements in the set.
             * max_size() - Returns the maximum number of elements that the set can hold.
             * empty() - Returns whether the set is empty.
-            ! find(x) - Returns an iterator to the element ‘x’ in the set if found, else returns the iterator to end.
-            * erase(x)– Removes the value ‘x’ from the set. It erases an element by value
-            * count(x) - Returns 1 or 0 based on the element ‘x’ is present in the set or not. It's the best way to check for the presence of an element.
-            * lower_bound(x) – Returns an iterator to the first element that is equivalent to ‘x’ or definitely will not go before the element ‘x’ in the set.
+            ! find(x) - Returns an iterator to the element â€˜xâ€™ in the set if found, else returns the iterator to end.
+            * erase(x)â€“ Removes the value â€˜xâ€™ from the set. It erases an element by value
+            * count(x) - Returns 1 or 0 based on the element â€˜xâ€™ is present in the set or not. It's the best way to check for the presence of an element.
+            * lower_bound(x) â€“ Returns an iterator to the first element that is equivalent to â€˜xâ€™ or definitely will not go before the element â€˜xâ€™ in the set.
               lower_bound can also be thought as the smallest element greater than or equal to x
             * Return reverse iterator to reverse beginning: (s.rbegin())
             * Set to be sorted in decreasing order: set<int, greater<int> >
@@ -234,12 +234,12 @@ int main(){
             * size() - Returns the number of elements in the vector.
             * max_size() -  Returns the maximum number of elements that the vector can hold.
             * capacity() - Returns the size of the storage space currently allocated to the vector expressed as number of elements.
-            * resize() - Resizes the container so that it contains ‘n’ elements.
+            * resize() - Resizes the container so that it contains â€˜nâ€™ elements.
             * empty() - Returns whether the container is empty.
             * shrink_to_fit() - Reduces the capacity of the container to fit its size and destroys all elements beyond the capacity.
             * reserve() - Requests that the vector capacity be at least enough to contain n elements.
-            * [i] - Returns a reference to the element at position ‘i’ in the vector
-            * at(i) - Returns a reference to the element at position ‘i’ in the vector
+            * [i] - Returns a reference to the element at position â€˜iâ€™ in the vector
+            * at(i) - Returns a reference to the element at position â€˜iâ€™ in the vector
             # front() - Returns a reference to the first element in the vector
             # back() - Returns a reference to the last element in the vector
             * data() - Returns a direct pointer to the memory array used internally by the vector to store its owned elements.
@@ -261,7 +261,7 @@ int main(){
             * emplace() - Insert a new element into the queue container, the new element is added to the end of the queue.
             * front() - front() function returns a reference to the first element of the queue.
             * back() - returns a reference to the last element of the queue.
-            * push(x) - adds the element ‘x’ at the end of the queue
+            * push(x) - adds the element â€˜xâ€™ at the end of the queue
             * pop() - deletes the first element of the queue
 
         ? Priority_Queue
@@ -269,7 +269,7 @@ int main(){
             * empty() - returns whether the queue is empty.
             * size() -  returns the size of the queue.
             # top() -  Returns a reference to the top most element of the queue
-            * push(x) - adds the element ‘x’ at the end of the queue.
+            * push(x) - adds the element â€˜xâ€™ at the end of the queue.
             * pop() -  deletes the first element of the queue.
             * swap() -  swap the contents of one priority queue with another priority queue of same type and size.
             * emplace() - insert a new element into the priority queue container, the new element is added to the top of the priority queue.
